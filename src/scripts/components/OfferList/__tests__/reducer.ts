@@ -1,4 +1,4 @@
-import { reducer, push } from 'components/OfferList';
+import { reducer } from 'components/OfferList';
 
 describe('reducer', () => {
     it('returns default state', () => {

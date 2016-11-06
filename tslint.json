@@ -24,7 +24,7 @@
     "label-undefined": true,
     "max-line-length": [
       true,
-      140
+      80
     ],
     "member-ordering": [
       true,
@@ -52,6 +52,7 @@
     "no-eval": true,
     "no-string-literal": false,
     "no-switch-case-fall-through": true,
+    "no-reference": true,
     "no-trailing-whitespace": true,
     "no-unreachable": true,
     "no-unused-expression": true,
@@ -60,7 +61,7 @@
       "react"
     ],
     "no-use-before-declare": true,
-    "no-var-requires": false,
+    "no-var-requires": true,
     "one-line": [
       true,
       "check-open-brace",
