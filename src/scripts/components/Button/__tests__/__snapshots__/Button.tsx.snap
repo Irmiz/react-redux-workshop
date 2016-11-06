@@ -1,0 +1,4 @@
+exports[`Button renders a button 1`] = `
+<button
+  type="button" />
+`;

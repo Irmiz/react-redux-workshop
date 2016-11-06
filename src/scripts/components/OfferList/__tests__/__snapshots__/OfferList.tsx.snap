@@ -1,0 +1,18 @@
+exports[`Offers component renders a list 1`] = `
+<div>
+  <ul>
+    <li>
+      Bob
+    </li>
+    <li>
+      Alice
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Offers component renders empty list 1`] = `
+<div>
+  <ul />
+</div>
+`;
