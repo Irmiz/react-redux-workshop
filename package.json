@@ -53,6 +53,7 @@
     "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
   },
   "devDependencies": {
+    "json-server": "^0.8.23",
     "tslint": "^3.15.1",
     "tslint-react": "^1.1.0"
   }
