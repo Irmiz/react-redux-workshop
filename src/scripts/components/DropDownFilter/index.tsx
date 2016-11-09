@@ -13,8 +13,7 @@ let store = createStore(reducers);
 // Main container for whole application
 const App = (
     <Provider store={store}>
-        <div>LJ: <a href="web/c/index.html">c task</a></div>
-        <div>kkk</div>
+        <div>pradesim</div>
     </Provider>
 );
 

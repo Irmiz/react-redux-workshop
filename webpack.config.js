@@ -3,7 +3,8 @@ var path = require("path");
 
 module.exports = {
     entry: {
-        search: ["./src/scripts/components/Search"]
+        search: ["./src/scripts/components/Search"],
+        dropDownFilter: ["./src/scripts/components/dropDownFilter"]
     },
     resolve: {
         root: [
