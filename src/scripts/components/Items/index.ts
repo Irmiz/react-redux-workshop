@@ -6,7 +6,7 @@ const defaultState = [
 ];
 
 // Actions
-const RECEIVE = 'components/Items/RECEIVE';
+export const RECEIVE = 'components/Items/RECEIVE';
 
 // Reducer
 const reducer = (state = defaultState, action) => {
