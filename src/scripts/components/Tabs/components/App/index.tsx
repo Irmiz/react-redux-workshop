@@ -1,20 +1,22 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 import { combineReducers } from 'redux';
-import { reducer as offers } from 'components/OfferList';
+import { reducer as tabsReducer } from 'components/Tabs/components/TabsList';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import TabsList from 'components/Tabs/components/TabsList';
 
 const reducers = combineReducers({
-    offers
+    tabs: tabsReducer
 });
+
 let store = createStore(reducers);
 
 // Main container for whole application
-const App = (
+const TabsApp = (
     <Provider store={store}>
-        <div>kkk</div>
+        <TabsList />
     </Provider>
 );
 
-render(App, document.getElementById('root'));
+render(TabsApp, document.getElementById('tabs'));
