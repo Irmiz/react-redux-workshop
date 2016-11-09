@@ -4,7 +4,7 @@ var path = require("path");
 module.exports = {
     entry: {
         search: ["./src/scripts/components/Search"],
-        tabs: [".src/scripts/components/Tabs"]
+        tabs: ["./src/scripts/components/Tabs/components/App"]
     },
     resolve: {
         root: [
