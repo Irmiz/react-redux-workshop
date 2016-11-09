@@ -8,7 +8,7 @@ interface Props {
 const Component = (props: Props) => (
     <ul>
         {props.items.map(item => (
-            <li>{item}</li>
+            <li>{item.id}</li>
         ))}
     </ul>
 );
