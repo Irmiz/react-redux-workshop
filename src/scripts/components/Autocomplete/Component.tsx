@@ -1,12 +1,9 @@
 import * as React from 'react';
+import List from 'components/Items';
 
 export default () => (
     <div>
-        <div>
-            <input type="text" />
-        </div>
-        <div>
-            kkkk
-        </div>
+        <input type="text" />
+        <List />
     </div>
 );
