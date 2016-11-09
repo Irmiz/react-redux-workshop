@@ -11,8 +11,8 @@ interface Props {
 const List: React.StatelessComponent<Props> = props => (
     <div>
         <ul>
-            {props.list.map((offer, index) => (
-                <Item key={index} index={index} />
+            {props.list.map((item: any, index) => (
+                <Item key={item.id} index={index} />
             ))}
         </ul>
     </div>

@@ -16,10 +16,8 @@ class DropDown extends React.Component<Props, {}> {
     }
 
     onChange(event) {
-        console.error(event.target.value);
-
         request
-            .get('http://localhost:3000/items?tag_like=apple')
+            .get(`http://localhost:3000/items?tag_like=${event.target.value}`)
             .set('Accept', 'application/json')
             .end((error, response) => {
                 if (!error) {
@@ -29,8 +27,6 @@ class DropDown extends React.Component<Props, {}> {
     }
 
     render() {
-
-
         return (
             <div>
                 <select onChange={this.onChange}>

@@ -10,8 +10,8 @@ const RECEIVE = 'components/List/RECEIVE';
 const reducer = (state = initialState, action: any = {}) => {
     switch (action.type) {
         case RECEIVE:
-            if (action.payload && action.payload.items) {
-                return [].concat(action.payload.items);
+            if (action.payload) {
+                return [].concat(action.payload);
             }
 
             return [];
