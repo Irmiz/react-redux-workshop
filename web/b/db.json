@@ -1,0 +1,54 @@
+{
+  "amenities": [
+    {
+      "label": "enim",
+      "isActive": false
+    },
+    {
+      "label": "proident",
+      "isActive": false
+    },
+    {
+      "label": "sunt",
+      "isActive": false
+    },
+    {
+      "label": "laborum",
+      "isActive": true
+    },
+    {
+      "label": "esse",
+      "isActive": true
+    }
+  ],
+  "images": [
+    {
+      "id": "watson",
+      "picture": "http://placehold.it/512x512"
+    },
+    {
+      "id": "cherry",
+      "picture": "http://placehold.it/512x512"
+    },
+    {
+      "id": "little",
+      "picture": "http://placehold.it/512x512"
+    },
+    {
+      "id": "gutierrez",
+      "picture": "http://placehold.it/512x512"
+    },
+    {
+      "id": "mcdaniel",
+      "picture": "http://placehold.it/512x512"
+    },
+    {
+      "id": "cross",
+      "picture": "http://placehold.it/512x512"
+    },
+    {
+      "id": "dale",
+      "picture": "http://placehold.it/512x512"
+    }
+  ]
+}
