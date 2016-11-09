@@ -3,7 +3,8 @@ var path = require("path");
 
 module.exports = {
     entry: {
-        search: ["./src/scripts/components/Search"]
+        search: ["./src/scripts/components/Search"],
+        autocomplete: ["./src/scripts/components/Autocomplete"]
     },
     resolve: {
         root: [
