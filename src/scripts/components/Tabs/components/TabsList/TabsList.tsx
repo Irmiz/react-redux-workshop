@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { open } from '../TabsList';
 
 interface Props {
     list: Array<any>,
-    activeTabKey: String
+    activeTabKey: String,
+    open: (key: String) => void
 }
 
 const ACTIVE_TAB_STYLE = {
@@ -11,34 +13,37 @@ const ACTIVE_TAB_STYLE = {
 };
 
 export class ImageList extends React.Component<Props, any> {
-    renderContent(activeTabKey) {
+    static renderContent(activeTabKey) {
         switch (activeTabKey) {
             case 'images':
-                return <div>images</div>
+                return <div>images</div>;
             case 'amenities':
-                return <div>amenities</div>
+                return <div>amenities</div>;
             case 'description':
-                return <div>description</div>
+                return <div>description</div>;
             default:
                 return <div>oops</div>
         }
     }
 
     render() {
-        const {list, activeTabKey} = this.props;
+        const {list, activeTabKey, open} = this.props;
         return (
             <div>
                 <ul>
                     {list.map((item, index) => (
                         <li
                             style={item.key === activeTabKey ? ACTIVE_TAB_STYLE : null}
+                            onClick={function() {
+                                open(item.key)
+                            }}
                         >
                             {item.name}
                         </li>
                     ))}
                 </ul>
                 <div>
-                    {this.renderContent(activeTabKey)}
+                    {ImageList.renderContent(activeTabKey)}
                 </div>
             </div>
         );
@@ -48,8 +53,12 @@ export class ImageList extends React.Component<Props, any> {
 const mapStateToProps = (state, ownProps) => {
     return {
         list: state.tabs.list,
-            activeTabKey: state.tabs.activeTabKey
+        activeTabKey: state.tabs.activeTabKey
     };
 };
 
-export default connect(mapStateToProps)(ImageList);
+const mapDispatch = dispatch => ({
+    open: (key) => dispatch(open(key))
+});
+
+export default connect(mapStateToProps, mapDispatch)(ImageList);

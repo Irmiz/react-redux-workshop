@@ -5,7 +5,7 @@ import {
 } from 'redux-actions';
 import TabsList from './TabsList';
 
-type Tabs = Array<any>;
+type Tabs = Object;
 
 // Actions
 const OPEN = 'components/Tabs/OPEN';
@@ -29,14 +29,17 @@ const defaultState = {
     activeTabKey: 'description'
 };
 // Reducer
-const reducer = (state = defaultState, action) => {
+const reducer = (state = defaultState, action: any = {}) => {
     switch (action.type) {
+        case OPEN:
+            return Object.assign({}, state, {activeTabKey: action.payload});
         default:
             return state;
     }
 };
 
 // Action creators
+export const open = createAction<{}, Tabs>(OPEN);
 
 export {
     TabsList as default,
