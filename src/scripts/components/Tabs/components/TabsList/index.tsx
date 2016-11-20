@@ -1,6 +1,5 @@
 import {
     createAction,
-    handleActions,
     Action
 } from 'redux-actions';
 import TabsList from './TabsList';
