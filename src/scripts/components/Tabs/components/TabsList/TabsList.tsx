@@ -5,7 +5,7 @@ import { fetch as fetchImages } from '../ImageList';
 import ImageList from '../ImageList';
 
 interface Props {
-    list: Array<any>,
+    list: any,
     activeTabKey: String,
     open: (key: String) => void
     fetch: (items: String) => void
@@ -16,14 +16,14 @@ const ACTIVE_TAB_STYLE = {
 };
 
 export class TabsList extends React.Component<Props, any> {
-    static renderContent(activeTabKey) {
+    static renderContent(list, activeTabKey) {
         switch (activeTabKey) {
             case 'images':
                 return <ImageList/>;
             case 'amenities':
                 return <div>amenities</div>;
             case 'description':
-                return <div>description</div>;
+                return list[activeTabKey].content;
             default:
                 return <div>oops</div>
         }
@@ -41,20 +41,22 @@ export class TabsList extends React.Component<Props, any> {
 
     render() {
         const {list, activeTabKey} = this.props;
+        const items = [];
+        for (const item in list) {
+            items.push(
+                <li style={item === activeTabKey ? ACTIVE_TAB_STYLE : null}
+                    onClick={() => this.onClick(list[item].key)}
+                    key={item}
+                >{list[item].name}</li>
+            );
+        }
         return (
             <div>
                 <ul>
-                    {list.map((item, index) => (
-                        <li
-                            style={item.key === activeTabKey ? ACTIVE_TAB_STYLE : null}
-                            onClick={() => this.onClick(item.key)}
-                        >
-                            {item.name}
-                        </li>
-                    ))}
+                    {items}
                 </ul>
                 <div>
-                    {TabsList.renderContent(activeTabKey)}
+                    {TabsList.renderContent(list, activeTabKey)}
                 </div>
             </div>
         );

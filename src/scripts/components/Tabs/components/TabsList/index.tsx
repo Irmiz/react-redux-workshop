@@ -10,21 +10,18 @@ type Tabs = Object;
 const OPEN = 'components/Tabs/OPEN';
 
 const defaultState = {
-    list: [
-        {
+    list: {
+        description: {
             name: 'Description',
             content: 'Te mea veniam consequat, per regione indoctum in. In fierent corrumpit nam, admodum fuisset at sea. Modus ornatus accusata eum ea, nec solum oratio democritum ut.',
-            key: 'description'
         },
-        {
+        images: {
             name: 'Images',
-            key: 'images'
         },
-        {
-            name: 'Amenities',
-            key: 'amenities'
+        amenities: {
+            name: 'Amenities'
         }
-    ],
+    },
     activeTabKey: 'description'
 };
 // Reducer
