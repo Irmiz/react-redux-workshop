@@ -1,26 +1,32 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import request = require('superagent');
 import { open } from '../TabsList';
-import { fetch as fetchImages } from '../ImageList';
+import { receiveImages } from '../ImageList';
 import ImageList from '../ImageList';
 
 interface Props {
     list: any,
     activeTabKey: String,
     open: (key: String) => void
-    fetch: (items: String) => void
+    receiveImages: (data: Array<any>) => void
 }
 
 const ACTIVE_TAB_STYLE = {
     backgroundColor: '#eee'
 };
 
+const DYNAMIC_CONTENT = {
+    IMAGES: 'images',
+    AMENITIES: 'amenities'
+};
+
 export class TabsList extends React.Component<Props, any> {
     static renderContent(list, activeTabKey) {
         switch (activeTabKey) {
-            case 'images':
+            case DYNAMIC_CONTENT.IMAGES:
                 return <ImageList/>;
-            case 'amenities':
+            case DYNAMIC_CONTENT.AMENITIES:
                 return <div>amenities</div>;
             case 'description':
                 return list[activeTabKey].content;
@@ -34,8 +40,19 @@ export class TabsList extends React.Component<Props, any> {
         this.onClick = this.onClick.bind(this);
     }
 
-    onClick(key) {
+    onClick(item, key) {
         this.props.open(key);
+
+        if (!item.content) {
+            request
+                .get(`http://localhost:3000/${key}`)
+                .set('Accept', 'application/json')
+                .end((err, res) => {
+                    if (!err && res.body) {
+                        this.props.receiveImages(res.body);
+                    }
+                });
+        }
 
     }
 
@@ -45,7 +62,7 @@ export class TabsList extends React.Component<Props, any> {
         for (const item in list) {
             items.push(
                 <li style={item === activeTabKey ? ACTIVE_TAB_STYLE : null}
-                    onClick={() => this.onClick(list[item].key)}
+                    onClick={() => this.onClick(list[item], item)}
                     key={item}
                 >{list[item].name}</li>
             );
@@ -71,7 +88,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatch = dispatch => ({
-    open: (key) => dispatch(open(key))
+    open: (key) => dispatch(open(key)),
+    receiveImages: (data) => dispatch(receiveImages(data))
 });
 
 export default connect(mapStateToProps, mapDispatch)(TabsList);

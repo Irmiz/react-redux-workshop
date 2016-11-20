@@ -1,6 +1,5 @@
 import {
-    createAction,
-    Action
+    createAction
 } from 'redux-actions';
 import TabsList from './TabsList';
 
@@ -35,9 +34,10 @@ const reducer = (state = defaultState, action: any = {}) => {
 };
 
 // Action creators
-export const open = createAction<{}, Tabs>(OPEN);
+const open = createAction<{}, Tabs>(OPEN);
 
 export {
     TabsList as default,
-    reducer
+    reducer,
+    open
 }

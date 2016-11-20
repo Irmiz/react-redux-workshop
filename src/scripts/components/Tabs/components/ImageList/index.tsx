@@ -1,25 +1,28 @@
 import {
-    createAction,
-    handleActions,
-    Action
+    createAction
 } from 'redux-actions';
 import ImageList from './ImageList';
 
 type Images = Array<any>;
 
 // Actions
-const FETCH = 'components/Images/FETCH';
+const RECEIVE = 'components/Images/RECEIVE';
 
 // Reducer
-const reducer = handleActions<Images>({
-    [FETCH]: (state: Images, action: Action<Images>): Images =>
-        [...state, action.payload]
-}, [] as Images);
+const reducer = (state = [], action: any = {}) => {
+    switch (action.type) {
+        case RECEIVE:
+            return Object.assign({}, state, {images: action.payload});
+        default:
+            return state;
+    }
+};
 
 // Action creators
-export const fetch = createAction<{}, Images>(FETCH);
+const receiveImages = createAction<{}, Images>(RECEIVE);
 
 export {
     ImageList as default,
-    reducer
+    reducer,
+    receiveImages
 }

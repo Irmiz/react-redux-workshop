@@ -7,16 +7,23 @@ interface Props {
 
 export const ImageList: React.StatelessComponent<Props> = props => (
     <div>
-        {props.images.map((image, index) => (
+    {props.images ?
+
+        props.images.map((image, index) => (
             <img key={index}
                  src={image.picture}
                  alt={image.id}/>
-        ))}
+        ))
+        : false
+    }
+    no content
     </div>
 );
 
-const mapStateToProps = (state, ownProps) => ({
-    images: state.images
-});
+const mapStateToProps = (state, ownProps) => {
+    return {
+        images: state.images
+    };
+};
 
 export default connect(mapStateToProps)(ImageList);
