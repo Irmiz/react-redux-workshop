@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { combineReducers } from 'redux';
 import {
-    reducer as list
+    reducer as list,
     receive
 } from 'components/Items';
 import { createStore } from 'redux';
