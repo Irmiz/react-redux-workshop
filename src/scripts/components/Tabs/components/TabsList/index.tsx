@@ -34,7 +34,7 @@ const reducer = (state = defaultState, action: any = {}) => {
 };
 
 // Action creators
-const open = createAction<{}, Tabs>(OPEN);
+const open = createAction<Tabs>(OPEN);
 
 export {
     TabsList as default,

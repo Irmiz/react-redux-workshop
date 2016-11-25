@@ -19,7 +19,7 @@ const reducer = (state = [], action: any = {}) => {
 };
 
 // Action creators
-const receiveImages = createAction<{}, Images>(RECEIVE);
+const receiveImages = createAction<Images>(RECEIVE);
 
 export {
     ImageList as default,
