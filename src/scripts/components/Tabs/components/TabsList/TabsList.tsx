@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import request = require('superagent');
 import { open } from '../TabsList';
 import { receiveImages } from '../ImageList';
+import { receiveAmenities } from '../AmenityList';
 import ImageList from '../ImageList';
+import AmenityList from '../AmenityList';
 
 interface Props {
     list: any,
     activeTabKey: String,
     open: (key: String) => void
     receiveImages: (data: Array<any>) => void
+    receiveAmenities: (data: Array<any>) => void
 }
 
 const ACTIVE_TAB_STYLE = {
@@ -27,7 +30,7 @@ export class TabsList extends React.Component<Props, any> {
             case DYNAMIC_CONTENT.IMAGES:
                 return <ImageList/>;
             case DYNAMIC_CONTENT.AMENITIES:
-                return <div>amenities</div>;
+                return <AmenityList/>;
             case 'description':
                 return list[activeTabKey].content;
             default:
@@ -49,7 +52,11 @@ export class TabsList extends React.Component<Props, any> {
                 .set('Accept', 'application/json')
                 .end((err, res) => {
                     if (!err && res.body) {
-                        this.props.receiveImages(res.body);
+                        if (key === 'images') {
+                            this.props.receiveImages(res.body);
+                        } else if (key === 'amenities') {
+                            this.props.receiveAmenities(res.body);
+                        }
                     }
                 });
         }
@@ -89,7 +96,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatch = dispatch => ({
     open: (key) => dispatch(open(key)),
-    receiveImages: (data) => dispatch(receiveImages(data))
+    receiveImages: (data) => dispatch(receiveImages(data)),
+    receiveAmenities: (data) => dispatch(receiveAmenities(data))
 });
 
 export default connect(mapStateToProps, mapDispatch)(TabsList);
