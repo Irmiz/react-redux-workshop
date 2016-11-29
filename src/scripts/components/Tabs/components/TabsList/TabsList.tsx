@@ -16,12 +16,27 @@ interface Props {
 }
 
 const ACTIVE_TAB_STYLE = {
-    backgroundColor: '#eee'
+    backgroundColor: '#eee',
+    display: 'inline',
+    padding: '20px'
+};
+
+const TAB_STYLE = {
+    display: 'inline',
+    padding: '20px'
+};
+
+const TAB_CONTAINER_STYLE = {
+    paddingLeft: '20px'
 };
 
 const DYNAMIC_CONTENT = {
     IMAGES: 'images',
     AMENITIES: 'amenities'
+};
+
+const CONTENT_STYLE = {
+    padding: '20px'
 };
 
 export class TabsList extends React.Component<Props, any> {
@@ -32,7 +47,7 @@ export class TabsList extends React.Component<Props, any> {
             case DYNAMIC_CONTENT.AMENITIES:
                 return <AmenityList/>;
             case 'description':
-                return list[activeTabKey].content;
+                return <div style={CONTENT_STYLE}>{list[activeTabKey].content}</div>;
             default:
                 return <div>oops</div>
         }
@@ -68,7 +83,7 @@ export class TabsList extends React.Component<Props, any> {
         const items = [];
         for (const item in list) {
             items.push(
-                <li style={item === activeTabKey ? ACTIVE_TAB_STYLE : null}
+                <li style={item === activeTabKey ? ACTIVE_TAB_STYLE : TAB_STYLE}
                     onClick={() => this.onClick(list[item], item)}
                     key={item}
                 >{list[item].name}</li>
@@ -76,7 +91,7 @@ export class TabsList extends React.Component<Props, any> {
         }
         return (
             <div>
-                <ul>
+                <ul style={TAB_CONTAINER_STYLE}>
                     {items}
                 </ul>
                 <div>

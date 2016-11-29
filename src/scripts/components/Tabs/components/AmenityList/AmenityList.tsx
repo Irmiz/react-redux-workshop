@@ -9,8 +9,12 @@ interface Props {
     amenities: Array<any>
 }
 
+const CONTENT_STYLE = {
+    padding: '20px'
+};
+
 export const ImageList: React.StatelessComponent<Props> = props => (
-    <div>
+    <div style={CONTENT_STYLE}>
         {props.amenities ?
 
             props.amenities.map((item, index) => (

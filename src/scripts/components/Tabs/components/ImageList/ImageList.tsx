@@ -5,8 +5,12 @@ interface Props {
     images: Array<any>
 }
 
+const CONTENT_STYLE = {
+    padding: '20px'
+};
+
 export const ImageList: React.StatelessComponent<Props> = props => (
-    <div>
+    <div style={CONTENT_STYLE}>
     {props.images ?
 
         props.images.map((image, index) => (
