@@ -14,15 +14,14 @@ export const ImageList: React.StatelessComponent<Props> = props => (
                  src={image.picture}
                  alt={image.id}/>
         ))
-        : false
+        : 'no content'
     }
-    no content
     </div>
 );
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        images: state.images
+        images: state.images.images
     };
 };
 
