@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import { combineReducers } from 'redux';
 import {
     default as ProductList,
-    reducer as products
+    reducer as products,
+    push as productsPush
 } from 'components/LazyPager/ProductList';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -12,7 +13,12 @@ import { Provider } from 'react-redux';
 const reducers = combineReducers({
     products
 });
+
+// Store
 let store = createStore(reducers);
+
+// Default data
+store.dispatch(productsPush(window.appData.products));
 
 // Main container for whole application
 const App = (

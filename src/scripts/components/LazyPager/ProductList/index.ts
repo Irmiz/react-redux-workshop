@@ -5,14 +5,14 @@ import ProductList from './ProductList';
 
 type Products = Array<any>;
 
-let defaultState = window.appData.products;
-
 // Actions
 const PUSH = 'compontents/LazyPager/ProductList/push';
 
 // Reducer
-const reducer = (state = defaultState, action) => {
+const reducer = (state = [], action) => {
     switch (action.type) {
+        case PUSH:
+            return [...state, ...action.payload];
         default:
             return state;
     }
