@@ -18,7 +18,7 @@ const reducers = combineReducers({
 let store = createStore(reducers);
 
 // Default data
-store.dispatch(productsPush(window.appData.products));
+store.dispatch(productsPush(window['appData'].products));
 
 // Main container for whole application
 const App = (
