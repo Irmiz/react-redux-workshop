@@ -33,9 +33,9 @@
       "resolved": "https://registry.npmjs.org/@types/redux/-/redux-3.6.31.tgz"
     },
     "@types/redux-actions": {
-      "version": "0.8.33",
+      "version": "0.8.34",
       "from": "@types/redux-actions@>=0.8.31 <0.9.0",
-      "resolved": "https://registry.npmjs.org/@types/redux-actions/-/redux-actions-0.8.33.tgz"
+      "resolved": "https://registry.npmjs.org/@types/redux-actions/-/redux-actions-0.8.34.tgz"
     },
     "@types/superagent": {
       "version": "2.0.35",
@@ -2913,9 +2913,9 @@
       "resolved": "https://registry.npmjs.org/redux/-/redux-3.6.0.tgz"
     },
     "redux-actions": {
-      "version": "0.13.0",
-      "from": "redux-actions@0.13.0",
-      "resolved": "https://registry.npmjs.org/redux-actions/-/redux-actions-0.13.0.tgz"
+      "version": "1.1.0",
+      "from": "redux-actions@1.1.0",
+      "resolved": "https://registry.npmjs.org/redux-actions/-/redux-actions-1.1.0.tgz"
     },
     "redux-mock-store": {
       "version": "1.2.1",

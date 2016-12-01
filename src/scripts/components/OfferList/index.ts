@@ -17,7 +17,7 @@ const reducer = handleActions<Offers>({
 }, [] as Offers);
 
 // Action creators
-export const push = createAction<{}, Offers>(PUSH);
+export const push = createAction<Offers>(PUSH);
 
 export {
     OfferList as default,
