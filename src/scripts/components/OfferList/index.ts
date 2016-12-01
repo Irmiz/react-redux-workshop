@@ -1,6 +1,5 @@
 import {
     createAction,
-    handleActions,
     Action
 } from 'redux-actions';
 import OfferList from './OfferList';
@@ -11,10 +10,14 @@ type Offers = Array<any>;
 const PUSH = 'components/Offers/push';
 
 // Reducer
-const reducer = handleActions<Offers>({
-    [PUSH]: (state: Offers, action: Action<Offers>): Offers =>
-        [...state, action.payload]
-}, [] as Offers);
+const reducer = (state, action: Action) => {
+    switch (action.type) {
+        case PUSH:
+            return [...state, action.payload];
+        default:
+            return state;
+    }
+};
 
 // Action creators
 export const push = createAction<Offers>(PUSH);
