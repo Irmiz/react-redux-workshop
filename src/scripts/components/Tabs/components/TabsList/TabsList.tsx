@@ -102,17 +102,14 @@ export class TabsList extends React.Component<Props, any> {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
+export default connect(
+    (state, ownprops) => ({
         list: state.tabs.list,
         activeTabKey: state.tabs.activeTabKey
-    };
-};
-
-const mapDispatch = dispatch => ({
-    open: (key) => dispatch(open(key)),
-    receiveImages: (data) => dispatch(receiveImages(data)),
-    receiveAmenities: (data) => dispatch(receiveAmenities(data))
-});
-
-export default connect(mapStateToProps, mapDispatch)(TabsList);
+    }),
+    (dispatch) => ({
+        open: (key) => dispatch(open(key)),
+        receiveImages: (data) => dispatch(receiveImages(data)),
+        receiveAmenities: (data) => dispatch(receiveAmenities(data))
+    })
+)

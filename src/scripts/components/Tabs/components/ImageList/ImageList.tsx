@@ -23,10 +23,8 @@ export const ImageList: React.StatelessComponent<Props> = props => (
     </div>
 );
 
-const mapStateToProps = (state, ownProps) => {
-    return {
+export default connect(
+    (state, ownProps) => ({
         images: state.images.images
-    };
-};
-
-export default connect(mapStateToProps)(ImageList);
+    })
+)(ImageList);
