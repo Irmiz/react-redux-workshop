@@ -8,10 +8,21 @@ interface Props {
 }
 
 const Product: React.StatelessComponent<Props> = props => (
-    <div key={props.index}>
-        <h1>{props.product.title}</h1>
-        <h2>{props.product.id}</h2>
-    </div>
+    <article className="Product"
+             ref={node => node && node.setAttribute('ui-flex', 'cross:center')}>
+        <p className="margR-s">
+            <img src={props.product.picture}
+                 alt={props.product.title}
+                 width="32"
+                 height="32"/>
+        </p>
+
+        <h3>
+            <span>{props.product.title}</span>
+            <br/>
+            <small>ID: {props.product.id}</small>
+        </h3>
+    </article>
 );
 
 const mapStateToProps = (state, ownProps) => ({

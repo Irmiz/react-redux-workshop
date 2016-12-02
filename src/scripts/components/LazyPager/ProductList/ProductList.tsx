@@ -6,16 +6,20 @@ import {
 } from '../Product';
 
 interface Props {
-    products: Array<any>;
+    products: Array<ProductJSON>;
 }
 
 export const ProductList: React.StatelessComponent<Props> = props => (
-    <div>
-        <ul>
+    <div className="ProductList">
+        <div ref={node => node && node.setAttribute('ui-flex', 'wrap:true')}>
             {props.products.map((product, index) => (
-                <Product index={index} />
+                <div key={index}
+                     className="padA-l"
+                     ref={node => node && node.setAttribute('ui-grid', '3/6')}>
+                    <Product index={index} />
+                </div>
             ))}
-        </ul>
+        </div>
     </div>
 );
 

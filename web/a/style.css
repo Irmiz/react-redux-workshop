@@ -1,3 +1,26 @@
+/* -- Global -- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+/* -- Atomic -- */
+.padA-l {
+    padding: 2rem;
+}
+
+.margR-s {
+    margin-right: .5rem;
+}
+
+/* -- Layout -- */
 [ui-flex] {
     display: flex
 }
