@@ -8,11 +8,13 @@ import { Provider } from 'react-redux';
 const reducers = combineReducers({
     offers
 });
+
 let store = createStore(reducers);
 
 // Main container for whole application
 const App = (
     <Provider store={store}>
+        <div>LJ: <a href="web/c/index.html">c task</a></div>
         <div>kkk</div>
     </Provider>
 );
