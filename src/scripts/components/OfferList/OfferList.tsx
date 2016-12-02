@@ -13,7 +13,7 @@ export const OfferList: React.StatelessComponent<Props> = props => (
     <div>
         <ul>
             {props.offers.map((offer, index) => (
-                <Offer key={index} index={index} />
+                <Offer key={index} index={index} type="nice" />
             ))}
         </ul>
     </div>
@@ -22,5 +22,9 @@ export const OfferList: React.StatelessComponent<Props> = props => (
 export default connect(
     (state, ownProps) => ({
         offers: state.offers
+    }),
+    (dispatch) => ({
+        doThis: dispatch({}),
+        doThat: dispatch({})
     })
 )(OfferList);

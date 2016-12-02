@@ -7,7 +7,7 @@ import {
 } from 'components/Items';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import Component from './Component';
+import Component from './Autocomplete';
 import request = require('superagent');
 
 const reducers = combineReducers({
