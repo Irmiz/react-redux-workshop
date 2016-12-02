@@ -19,8 +19,8 @@ export const OfferList: React.StatelessComponent<Props> = props => (
     </div>
 );
 
-const mapStateToProps = (state, ownProps) => ({
-    offers: state.offers
-});
-
-export default connect(mapStateToProps)(OfferList);
+export default connect(
+    (state, ownProps) => ({
+        offers: state.offers
+    })
+)(OfferList);
