@@ -3,8 +3,7 @@ var path = require("path");
 
 module.exports = {
     entry: {
-        search: ["./src/scripts/components/Search"],
-        lazyPager: ["./src/scripts/components/LazyPager"]
+        search: ["./src/scripts/components/Search"]
     },
     resolve: {
         root: [
