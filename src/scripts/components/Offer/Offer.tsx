@@ -13,8 +13,8 @@ const Offer: React.StatelessComponent<Props> = props => (
     </li>
 );
 
-const mapStateToProps = (state, ownProps) => ({
-    offer: state.offers[ownProps.index]
-});
-
-export default connect(mapStateToProps)(Offer);
+export default connect(
+    (state, ownProps: Props) => ({
+        offer: state.offers[ownProps.index]
+    })
+)(Offer);

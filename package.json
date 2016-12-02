@@ -11,13 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/jest": "^15.1.32",
-    "@types/react": "^0.14.46",
+    "@types/jest": "^16.0.1",
+    "@types/react": "^0.14.52",
     "@types/react-dom": "^0.14.18",
-    "@types/react-redux": "^4.4.32",
+    "@types/react-redux": "^4.4.35",
     "@types/redux": "^3.6.31",
-    "@types/redux-actions": "^0.8.31",
-    "@types/superagent": "^2.0.35",
+    "@types/redux-actions": "^0.8.34",
+    "@types/superagent": "^2.0.36",
     "awesome-typescript-loader": "^1.1.1",
     "jest": "^17.0.0",
     "react": "^15.3.2",
@@ -25,10 +25,12 @@
     "react-redux": "^4.4.5",
     "react-test-renderer": "^15.3.2",
     "redux": "^3.6.0",
-    "redux-actions": "^0.13.0",
+    "redux-actions": "^1.1.0",
     "redux-mock-store": "^1.2.1",
     "redux-thunk": "^2.1.0",
-    "superagent": "^2.3.0",
+    "superagent": "^3.1.0",
+    "tslint": "^4.0.2",
+    "tslint-react": "^2.0.0",
     "typescript": "^2.1.1",
     "webpack": "^1.13.2"
   },
@@ -55,7 +57,7 @@
   },
   "devDependencies": {
     "json-server": "^0.8.23",
-    "tslint": "^3.15.1",
-    "tslint-react": "^1.1.0"
+    "tslint": "^4.0.0",
+    "tslint-react": "^2.0.0"
   }
 }
