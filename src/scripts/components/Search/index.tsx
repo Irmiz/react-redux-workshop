@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 const reducers = combineReducers({
     offers
 });
+
 let store = createStore(reducers);
 
 // Main container for whole application

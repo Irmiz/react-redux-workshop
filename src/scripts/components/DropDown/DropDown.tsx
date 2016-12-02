@@ -39,16 +39,15 @@ class DropDown extends React.Component<Props, {}> {
     }
 }
 
-const mapStateToProps = () => ({
-    options: [
-        'apple',
-        'banana',
-        'strawberry'
-    ]
-});
-
-const mapDispach = dispatch => ({
-    receiveList: (data) => dispatch(receiveList(data))
-});
-
-export default connect(mapStateToProps, mapDispach)(DropDown);
+export default connect(
+    () => ({
+        options: [
+            'apple',
+            'banana',
+            'strawberry'
+        ]
+    }),
+    dispatch => ({
+        receiveList: (data) => dispatch(receiveList(data))
+    })
+)(DropDown);

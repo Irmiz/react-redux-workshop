@@ -11,8 +11,8 @@ const Item: React.StatelessComponent<Props> = props => (
     </li>
 );
 
-const mapStateToProps = (state, ownProps) => ({
-    item: state.list[ownProps.index]
-});
-
-export default connect(mapStateToProps)(Item);
+export default connect(
+    (state, ownProps) => ({
+        item: state.list[ownProps.index]
+    })
+)(Item);

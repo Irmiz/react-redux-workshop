@@ -18,8 +18,8 @@ const List: React.StatelessComponent<Props> = props => (
     </div>
 );
 
-const mapStateToProps = (state, ownProps) => ({
-    list: state.list
-});
-
-export default connect(mapStateToProps)(List);
+export default connect(
+    (state, ownProps) => ({
+        list: state.list
+    })
+)(List);
