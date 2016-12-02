@@ -1,15 +1,23 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { combineReducers } from 'redux';
-import { default as List, reducer as list } from 'components/List';
+import { combineReducers, applyMiddleware } from 'redux';
 import { createStore } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import DropDown from 'components/DropDown';
+import {
+    default as List,
+    reducer as listReducer
+} from 'components/List';
+import {
+    default as DropDown,
+    reducer as optionsReducer
+} from 'components/DropDown';
 
 const reducers = combineReducers({
-    list
+    list: listReducer,
+    options: optionsReducer
 });
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunk));
 
 // Main container for whole application
 const App = (

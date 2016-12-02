@@ -1,53 +1,29 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import request = require('superagent');
-import { receiveList } from '../List';
+import { fetch } from './';
 
 interface Props {
     options: Array<string>;
-    receiveList: (data: Array<Object>) => void;
+    handleChange: React.EventHandler<React.SyntheticEvent<any>>;
 }
 
-class DropDown extends React.Component<Props, {}> {
-    constructor(props) {
-        super(props);
-
-        this.onChange = this.onChange.bind(this);
-    }
-
-    onChange(event) {
-        request
-            .get(`http://localhost:3000/items?tag_like=${event.target.value}`)
-            .set('Accept', 'application/json')
-            .end((error, response) => {
-                if (!error) {
-                    this.props.receiveList(response.body);
-                }
-            });
-    }
-
-    render() {
-        return (
-            <div>
-                <select onChange={this.onChange}>
-                    {this.props.options.map((option, index) => (
-                        <option key={option} value={option}>{option}</option>
-                    ))}
-                </select>
-            </div>
-        )
-    }
-}
+const DropDown: React.StatelessComponent<Props> =
+    ({ handleChange, options }) => (
+        <select onChange={handleChange}>
+            {options.map((option, index) => (
+                <option key={option} value={option}>
+                    {option}
+                </option>
+            ))}
+        </select>
+    );
 
 export default connect(
-    () => ({
-        options: [
-            'apple',
-            'banana',
-            'strawberry'
-        ]
+    (state, ownProps) => ({
+        options: state.options
     }),
     dispatch => ({
-        receiveList: (data) => dispatch(receiveList(data))
+        handleChange: (event) => dispatch(fetch(event.target.value))
     })
 )(DropDown);
