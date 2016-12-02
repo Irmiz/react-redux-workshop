@@ -5,12 +5,13 @@ import {
 import OfferList from './OfferList';
 
 type Offers = Array<any>;
+const defaultState = [];
 
 // Actions
 const PUSH = 'components/Offers/push';
 
 // Reducer
-const reducer = (state, action: Action) => {
+const reducer = (state = defaultState, action: Action<Offers>) => {
     switch (action.type) {
         case PUSH:
             return [...state, action.payload];

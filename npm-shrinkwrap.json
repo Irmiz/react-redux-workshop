@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "@types/jest": {
-      "version": "15.1.32",
-      "from": "@types/jest@latest",
-      "resolved": "https://registry.npmjs.org/@types/jest/-/jest-15.1.32.tgz"
+      "version": "16.0.1",
+      "from": "@types/jest@16.0.1",
+      "resolved": "https://registry.npmjs.org/@types/jest/-/jest-16.0.1.tgz"
     },
     "@types/node": {
       "version": "0.0.2",
