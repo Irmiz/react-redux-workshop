@@ -8,11 +8,11 @@ import ImageList from '../ImageList';
 import AmenityList from '../AmenityList';
 
 interface Props {
-    list: any,
-    activeTabKey: String,
-    open: (key: String) => void
-    receiveImages: (data: Array<any>) => void
-    receiveAmenities: (data: Array<any>) => void
+    list: any;
+    activeTabKey: String;
+    open: (key: String) => void;
+    receiveImages: (data: Array<any>) => void;
+    receiveAmenities: (data: Array<any>) => void;
 }
 
 const ACTIVE_TAB_STYLE = {
@@ -39,19 +39,24 @@ const CONTENT_STYLE = {
     padding: '20px'
 };
 
-export class TabsList extends React.Component<Props, any> {
-    static renderContent(list, activeTabKey) {
-        switch (activeTabKey) {
-            case DYNAMIC_CONTENT.IMAGES:
-                return <ImageList/>;
-            case DYNAMIC_CONTENT.AMENITIES:
-                return <AmenityList/>;
-            case 'description':
-                return <div style={CONTENT_STYLE}>{list[activeTabKey].content}</div>;
-            default:
-                return <div>oops</div>
-        }
+function renderContent(list, activeTabKey): React.Component {
+    switch (activeTabKey) {
+        case DYNAMIC_CONTENT.IMAGES:
+            return <ImageList/>;
+        case DYNAMIC_CONTENT.AMENITIES:
+            return <AmenityList/>;
+        case 'description':
+            return (
+                <div style={CONTENT_STYLE}>
+                    {list[activeTabKey].content}
+                </div>
+            );
+        default:
+            return <div>oops</div>;
     }
+}
+
+export class TabsList extends React.Component<Props, any> {
 
     constructor(props) {
         super(props);
@@ -95,7 +100,7 @@ export class TabsList extends React.Component<Props, any> {
                     {items}
                 </ul>
                 <div>
-                    {TabsList.renderContent(list, activeTabKey)}
+                    {renderContent(list, activeTabKey)}
                 </div>
             </div>
         );
@@ -112,4 +117,4 @@ export default connect(
         receiveImages: (data) => dispatch(receiveImages(data)),
         receiveAmenities: (data) => dispatch(receiveAmenities(data))
     })
-)
+)(TabsList);

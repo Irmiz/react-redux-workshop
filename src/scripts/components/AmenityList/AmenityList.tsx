@@ -15,13 +15,13 @@ const CONTENT_STYLE = {
 
 export const ImageList: React.StatelessComponent<Props> = props => (
     <div style={CONTENT_STYLE}>
-        {props.amenities ?
-
+        {props.amenities && (
             props.amenities.map((item, index) => (
-                <div key={index+item.label} style={!item.isActive ? ACTIVE_STYLE : null}>{item.label}</div>
+                <div key={index + item.label} style={!item.isActive ? ACTIVE_STYLE : null}>
+                    {item.label}
+                </div>
             ))
-            : 'no content'
-        }
+        )}
     </div>
 );
 
