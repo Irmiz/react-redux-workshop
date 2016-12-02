@@ -21,9 +21,10 @@ const reducer = (state = defaultState, action: Action<Offers>) => {
 };
 
 // Action creators
-export const push = createAction<Offers>(PUSH);
+const push = createAction<Offers>(PUSH);
 
 export {
     OfferList as default,
-    reducer
+    reducer,
+    push
 }
